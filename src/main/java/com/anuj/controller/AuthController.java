@@ -55,10 +55,10 @@ public class AuthController {
 
     @PostMapping("/sent/login-signup-otp")
     public ResponseEntity<ApiResponce> sentLoginOtp(
-            @RequestBody VerificationCode req) throws Exception {
-//            @RequestBody LoginOtpRequest req) throws Exception {
-        authService.sentLoginOtp(req.getEmail());
-//        authService.sentLoginOtp(req.getEmail(),req.getRole());
+//            @RequestBody VerificationCode req) throws Exception {
+            @RequestBody LoginOtpRequest req) throws Exception {
+//        authService.sentLoginOtp(req.getEmail());
+        authService.sentLoginOtp(req.getEmail(),req.getRole());
 
           ApiResponce res =new ApiResponce();
 

@@ -7,7 +7,7 @@ import com.anuj.modal.Seller;
 import com.anuj.modal.User;
 import com.anuj.modal.VerificationCode;
 import com.anuj.repository.CartRepository;
-//import com.anuj.repository.SellerRepository;
+import com.anuj.repository.SellerRepository;
 import com.anuj.repository.UserRepository;
 import com.anuj.repository.VerificationCodeRepository;
 import com.anuj.request.LoginRequest;
@@ -42,8 +42,8 @@ public class AuthServiceImpl implements AuthService {
     private final VerificationCodeRepository verificationCodeRepository;
     private final EmailService emailService;
     private final CustomUserServiceImpl customUserDetails;
-//    private final SellerRepository sellerRepository;
-//
+    private final SellerRepository sellerRepository;
+
     @Override
     public String createUser(SignupRequest req) throws Exception {
 
@@ -96,71 +96,21 @@ public class AuthServiceImpl implements AuthService {
         return "";
     }
 
-    @Override
-    public void sentLoginOtp(String email) throws Exception {
-
-         String SIGNING_PREFIX = "signing_";
-         //for seller
-         String SELLER_PREFIX="seller_";
-
-        if (email.startsWith(SIGNING_PREFIX)) {
-            email = email.substring(SIGNING_PREFIX.length());
-//            userService.findUserByEmail(email);
-
-            User user=userRepository.findByEmail(email);
-            if(user==null){
-                throw new Exception("user not exist");
-            }
-        }
-
-        VerificationCode isExist = verificationCodeRepository
-                .findByEmail(email);
-
-        if (isExist != null) {
-            verificationCodeRepository.delete(isExist);
-        }
-
-        String otp = OtpUtils.generateOTP();
-
-        VerificationCode verificationCode = new VerificationCode();
-        verificationCode.setOtp(otp);
-        verificationCode.setEmail(email);
-        verificationCodeRepository.save(verificationCode);
-
-        System.out.println("otp: "+ otp);
-
-
-        String subject = "Ecom Login/Signup Otp";
-        String text = "your login otp is - "+otp;
-        emailService.sendVerificationOtpEmail(email, otp, subject, text);
-    }
-
-
 //    @Override
-//    public void sentLoginOtp(String email,USER_ROLE role) throws Exception {
+//    public void sentLoginOtp(String email) throws Exception {
 //
-//        String SIGNING_PREFIX = "signing_";
-//        //for seller
-////         String SELLER_PREFIX="seller_";
+//         String SIGNING_PREFIX = "signing_";
+//         //for seller
+//         String SELLER_PREFIX="seller_";
 //
 //        if (email.startsWith(SIGNING_PREFIX)) {
 //            email = email.substring(SIGNING_PREFIX.length());
-////            userService.findUserByEmail(email);
-//            if(role.equals(USER_ROLE.ROLE_SELLER)){
+//            userService.findUserByEmail(email);
 //
-//                Seller seller=sellerRepository.findByEmail(email);
-//                if(seller==null){
-//                    throw new Exception("seller not found");
-//                }
+//            User user=userRepository.findByEmail(email);
+//            if(user==null){
+//                throw new Exception("user not exist");
 //            }
-//
-//            else{
-//                User user=userRepository.findByEmail(email);
-//                if(user==null){
-//                    throw new Exception("user not exist");
-//                }
-//            }
-//
 //        }
 //
 //        VerificationCode isExist = verificationCodeRepository
@@ -184,6 +134,57 @@ public class AuthServiceImpl implements AuthService {
 //        String text = "your login otp is - "+otp;
 //        emailService.sendVerificationOtpEmail(email, otp, subject, text);
 //    }
+
+
+    @Override
+    public void sentLoginOtp(String email,USER_ROLE role) throws Exception {
+
+        String SIGNING_PREFIX = "signing_";
+        //for seller
+//         String SELLER_PREFIX="seller_";
+        System.out.println("email postman sent "+email);
+        if (email.startsWith(SIGNING_PREFIX)) {
+            email = email.substring(SIGNING_PREFIX.length());
+//            userService.findUserByEmail(email);
+            System.out.println("email header removes  "+email);
+            if(role.equals(USER_ROLE.ROLE_SELLER)){
+
+                Seller seller=sellerRepository.findByEmail(email);
+                if(seller==null){
+                    throw new Exception("seller not found");
+                }
+            }
+
+            else{
+                User user=userRepository.findByEmail(email);
+                if(user==null){
+                    throw new Exception("user not exist");
+                }
+            }
+
+        }
+
+        VerificationCode isExist = verificationCodeRepository
+                .findByEmail(email);
+
+        if (isExist != null) {
+            verificationCodeRepository.delete(isExist);
+        }
+
+        String otp = OtpUtils.generateOTP();
+
+        VerificationCode verificationCode = new VerificationCode();
+        verificationCode.setOtp(otp);
+        verificationCode.setEmail(email);
+        verificationCodeRepository.save(verificationCode);
+
+        System.out.println("otp: "+ otp);
+
+
+        String subject = "Ecom Login/Signup Otp";
+        String text = "your login otp is - "+otp;
+        emailService.sendVerificationOtpEmail(email, otp, subject, text);
+    }
     @Override
     public AuthResponse signing(LoginRequest req) throws Exception {
 
