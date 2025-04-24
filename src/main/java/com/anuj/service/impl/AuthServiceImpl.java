@@ -220,12 +220,20 @@ public class AuthServiceImpl implements AuthService {
     private Authentication authenticate(String username, String otp) throws Exception {
         UserDetails userDetails = customUserDetails.loadUserByUsername(username);
 
+        String SELLER_PREFIX="seller_";
+        if(username.startsWith(SELLER_PREFIX)){
+            username=username.substring(SELLER_PREFIX.length());
+
+        }
+
         System.out.println("sign in userDetails - " + userDetails);
 
         if (userDetails == null) {
             System.out.println("sign in userDetails - null ");
             throw new BadCredentialsException("Invalid username or password");
         }
+
+
         VerificationCode verificationCode = verificationCodeRepository.findByEmail(username);
 
         if (verificationCode == null || !verificationCode.getOtp().equals(otp)) {
