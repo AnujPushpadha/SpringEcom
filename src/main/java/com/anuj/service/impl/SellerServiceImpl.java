@@ -4,6 +4,7 @@ import com.anuj.config.JwtProvider;
 import com.anuj.domain.AccountStatus;
 import com.anuj.domain.USER_ROLE;
 //import com.anuj.exception.SellerException;
+import com.anuj.exception.SellerException;
 import com.anuj.modal.Address;
 import com.anuj.modal.Seller;
 import com.anuj.repository.AddressRepository;
@@ -60,12 +61,12 @@ public class SellerServiceImpl implements SellerService {
     }
 
     @Override
-    public Seller getSellerById(Long id) throws Exception {
+    public Seller getSellerById(Long id) throws SellerException {
         Optional<Seller> optionalSeller = sellerRepository.findById(id);
         if (optionalSeller.isPresent()) {
             return optionalSeller.get();
         }
-        throw new Exception("Seller not found");
+        throw new SellerException("Seller not found");
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.anuj.service;
 
 import com.anuj.domain.AccountStatus;
 //import com.anuj.exception.SellerException;
+import com.anuj.exception.SellerException;
 import com.anuj.modal.Seller;
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +12,7 @@ public interface SellerService {
 
     Seller createSeller(Seller seller) throws Exception;
 
-    Seller getSellerById(Long id) throws Exception;
+    Seller getSellerById(Long id) throws SellerException;
 
     Seller getSellerByEmail(String email) throws Exception;
 

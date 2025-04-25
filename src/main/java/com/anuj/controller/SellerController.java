@@ -1,6 +1,7 @@
 package com.anuj.controller;
 
 import com.anuj.domain.AccountStatus;
+import com.anuj.exception.SellerException;
 import com.anuj.modal.Seller;
 import com.anuj.modal.SellerReport;
 import com.anuj.modal.VerificationCode;
@@ -109,7 +110,7 @@ public class SellerController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Seller> getSellerById(@PathVariable Long id) throws Exception {
+    public ResponseEntity<Seller> getSellerById(@PathVariable Long id) throws SellerException {
         Seller seller = sellerService.getSellerById(id);
         return new ResponseEntity<>(seller, HttpStatus.OK);
     }
