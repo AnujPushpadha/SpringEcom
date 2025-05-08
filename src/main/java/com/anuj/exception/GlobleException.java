@@ -30,14 +30,14 @@ public class GlobleException {
 //
 //    }
 //
-//    @ExceptionHandler(ProductException.class)
-//    public ResponseEntity<ErrorDetails> ProductExceptionHandler(ProductException ue, WebRequest req){
-//
-//        ErrorDetails err= new ErrorDetails(ue.getMessage(),req.getDescription(false),LocalDateTime.now());
-//
-//        return new ResponseEntity<ErrorDetails>(err,HttpStatus.BAD_REQUEST);
-//
-//    }
+    @ExceptionHandler(ProductException.class)
+    public ResponseEntity<ErrorDetails> ProductExceptionHandler(ProductException ue, WebRequest req){
+
+        ErrorDetails err= new ErrorDetails(ue.getMessage(),req.getDescription(false),LocalDateTime.now());
+
+        return new ResponseEntity<ErrorDetails>(err,HttpStatus.BAD_REQUEST);
+
+    }
 //
 //    @ExceptionHandler(CartItemException.class)
 //    public ResponseEntity<ErrorDetails> CartItemExceptionHandler(CartItemException ue, WebRequest req){
