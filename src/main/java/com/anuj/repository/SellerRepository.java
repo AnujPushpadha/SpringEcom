@@ -1,7 +1,7 @@
 package com.anuj.repository;
 
 import com.anuj.domain.AccountStatus;
-import com.anuj.modal.Seller;
+import com.anuj.model.Seller;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

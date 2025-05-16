@@ -1,4 +1,4 @@
-package com.anuj.responce;
+package com.anuj.response;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

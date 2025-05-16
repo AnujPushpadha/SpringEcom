@@ -3,8 +3,8 @@ package com.anuj.service;
 import com.anuj.domain.USER_ROLE;
 //import com.anuj.modal.User;
 import com.anuj.request.LoginRequest;
-import com.anuj.responce.AuthResponse;
-import com.anuj.responce.SignupRequest;
+import com.anuj.response.AuthResponse;
+import com.anuj.response.SignupRequest;
 
 public interface AuthService {
 

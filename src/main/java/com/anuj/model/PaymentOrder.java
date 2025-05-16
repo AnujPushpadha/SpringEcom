@@ -1,4 +1,4 @@
-package com.anuj.modal;
+package com.anuj.model;
 
 
 import com.anuj.domain.PaymentMethod;
@@ -8,9 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity

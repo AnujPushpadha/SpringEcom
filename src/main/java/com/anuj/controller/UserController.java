@@ -1,7 +1,6 @@
 package com.anuj.controller;
 
-import com.anuj.modal.User;
-import org.springframework.http.HttpStatus;
+import com.anuj.model.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;

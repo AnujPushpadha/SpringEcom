@@ -1,8 +1,8 @@
-package com.anuj.responce;
+package com.anuj.response;
 
 import lombok.Data;
 @Data
-public class ApiResponce {
+public class ApiResponse {
 
     private String message;
 }

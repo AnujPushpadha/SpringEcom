@@ -1,4 +1,4 @@
-package com.anuj.modal;
+package com.anuj.model;
 
 
 

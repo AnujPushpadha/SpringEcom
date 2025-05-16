@@ -1,7 +1,6 @@
-package com.anuj.modal;
+package com.anuj.model;
 
-import java.time.LocalDateTime;
-import java.util.Objects;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -12,12 +11,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import lombok.*;
 
-@Getter
 @Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class OrderItem {
+public class CartItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,9 +24,11 @@ public class OrderItem {
 
     @JsonIgnore
     @ManyToOne
-    private Order order;
-//one order  have same product
+//    one cart have milti items
+    private Cart cart;
+
     @ManyToOne
+//
     private Product product;
 
     private String size;

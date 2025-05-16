@@ -1,6 +1,5 @@
-package com.anuj.modal;
+package com.anuj.model;
 
-import com.anuj.modal.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

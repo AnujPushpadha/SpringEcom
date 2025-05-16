@@ -5,13 +5,12 @@ import com.anuj.domain.AccountStatus;
 import com.anuj.domain.USER_ROLE;
 //import com.anuj.exception.SellerException;
 import com.anuj.exception.SellerException;
-import com.anuj.modal.Address;
-import com.anuj.modal.Seller;
+import com.anuj.model.Address;
+import com.anuj.model.Seller;
 import com.anuj.repository.AddressRepository;
 import com.anuj.repository.SellerRepository;
 import com.anuj.service.SellerService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

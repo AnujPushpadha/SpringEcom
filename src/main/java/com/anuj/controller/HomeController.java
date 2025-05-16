@@ -1,6 +1,6 @@
 package com.anuj.controller;
 
-import com.anuj.responce.ApiResponce;
+import com.anuj.response.ApiResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeController {
 
     @GetMapping("/")
-    public ApiResponce HomeControllerHandler(){
-        ApiResponce apiResponce= new ApiResponce();
+    public ApiResponse HomeControllerHandler(){
+        ApiResponse apiResponce= new ApiResponse();
         apiResponce.setMessage("welcome  to ecom multivender system api");
         return apiResponce;
     }

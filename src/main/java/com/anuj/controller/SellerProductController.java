@@ -2,16 +2,14 @@ package com.anuj.controller;
 
 //import com.anuj.exception.CategoryNotFoundException;
 import com.anuj.exception.ProductException;
-import com.anuj.exception.SellerException;
 //import com.anuj.exception.UserException;
-import com.anuj.modal.Product;
-import com.anuj.modal.Seller;
+import com.anuj.model.Product;
+import com.anuj.model.Seller;
 import com.anuj.request.CreateProductRequest;
 import com.anuj.service.ProductService;
 import com.anuj.service.SellerService;
 import com.anuj.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

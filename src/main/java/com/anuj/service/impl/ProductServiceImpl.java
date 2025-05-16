@@ -1,9 +1,9 @@
 package com.anuj.service.impl;
 
 import com.anuj.exception.ProductException;
-import com.anuj.modal.Category;
-import com.anuj.modal.Product;
-import com.anuj.modal.Seller;
+import com.anuj.model.Category;
+import com.anuj.model.Product;
+import com.anuj.model.Seller;
 import com.anuj.repository.CategoryRepository;
 import com.anuj.repository.ProductRepository;
 import com.anuj.request.CreateProductRequest;
@@ -11,7 +11,6 @@ import com.anuj.service.ProductService;
 import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

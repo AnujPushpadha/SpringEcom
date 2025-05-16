@@ -2,27 +2,22 @@ package com.anuj.controller;
 
 import com.anuj.domain.AccountStatus;
 import com.anuj.exception.SellerException;
-import com.anuj.modal.Seller;
-import com.anuj.modal.SellerReport;
-import com.anuj.modal.VerificationCode;
+import com.anuj.model.Seller;
+import com.anuj.model.VerificationCode;
 import com.anuj.repository.SellerRepository;
 import com.anuj.repository.VerificationCodeRepository;
 import com.anuj.request.LoginRequest;
-import com.anuj.responce.ApiResponce;
-import com.anuj.responce.AuthResponse;
+import com.anuj.response.AuthResponse;
 import com.anuj.service.AuthService;
 import com.anuj.service.EmailService;
 import com.anuj.service.SellerService;
 import com.anuj.utils.OtpUtils;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor

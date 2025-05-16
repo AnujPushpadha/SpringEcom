@@ -1,29 +1,31 @@
-package com.anuj.modal;
+package com.anuj.model;
+
 
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@NoArgsConstructor
+@Getter
+@Setter
 @AllArgsConstructor
-@Data
-public class VerificationCode {
+@NoArgsConstructor
+public class Wishlist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String otp;
-
-    private String email;
-
     @OneToOne
     private User user;
 
-    @OneToOne
-    private Seller seller;
-
+    @ManyToMany
+    private Set<Product> products=new HashSet<>();
 }
+

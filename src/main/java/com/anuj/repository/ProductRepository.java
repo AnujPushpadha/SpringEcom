@@ -1,7 +1,6 @@
 package com.anuj.repository;
 
-import com.anuj.modal.Category;
-import com.anuj.modal.Product;
+import com.anuj.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;

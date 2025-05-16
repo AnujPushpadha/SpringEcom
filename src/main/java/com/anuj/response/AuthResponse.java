@@ -1,4 +1,4 @@
-package com.anuj.responce;
+package com.anuj.response;
 
 import com.anuj.domain.USER_ROLE;
 import lombok.AllArgsConstructor;

@@ -1,8 +1,8 @@
 package com.anuj.service.impl;
 
 import com.anuj.domain.USER_ROLE;
-import com.anuj.modal.Seller;
-import com.anuj.modal.User;
+import com.anuj.model.Seller;
+import com.anuj.model.User;
 import com.anuj.repository.SellerRepository;
 import com.anuj.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

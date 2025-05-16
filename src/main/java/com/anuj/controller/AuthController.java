@@ -1,14 +1,12 @@
 package com.anuj.controller;
 
 import com.anuj.domain.USER_ROLE;
-import com.anuj.modal.User;
-import com.anuj.modal.VerificationCode;
 import com.anuj.repository.UserRepository;
 import com.anuj.request.LoginOtpRequest;
 import com.anuj.request.LoginRequest;
-import com.anuj.responce.ApiResponce;
-import com.anuj.responce.AuthResponse;
-import com.anuj.responce.SignupRequest;
+import com.anuj.response.ApiResponse;
+import com.anuj.response.AuthResponse;
+import com.anuj.response.SignupRequest;
 import com.anuj.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -54,13 +52,13 @@ public class AuthController {
 
 
     @PostMapping("/sent/login-signup-otp")
-    public ResponseEntity<ApiResponce> sentLoginOtp(
+    public ResponseEntity<ApiResponse> sentLoginOtp(
 //            @RequestBody VerificationCode req) throws Exception {
             @RequestBody LoginOtpRequest req) throws Exception {
 //        authService.sentLoginOtp(req.getEmail());
         authService.sentLoginOtp(req.getEmail(),req.getRole());
 
-          ApiResponce res =new ApiResponce();
+          ApiResponse res =new ApiResponse();
 
         res.setMessage("otp sent");
         return new ResponseEntity<>(res, HttpStatus.CREATED);

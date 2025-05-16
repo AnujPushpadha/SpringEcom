@@ -1,7 +1,7 @@
 package com.anuj.service.impl;
 
 import com.anuj.config.JwtProvider;
-import com.anuj.modal.User;
+import com.anuj.model.User;
 import com.anuj.repository.UserRepository;
 import com.anuj.service.UserService;
 import lombok.RequiredArgsConstructor;

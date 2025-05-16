@@ -1,8 +1,8 @@
 package com.anuj.service;
 
 import com.anuj.exception.ProductException;
-import com.anuj.modal.Product;
-import com.anuj.modal.Seller;
+import com.anuj.model.Product;
+import com.anuj.model.Seller;
 import com.anuj.request.CreateProductRequest;
 import org.springframework.data.domain.Page;
 

@@ -1,6 +1,6 @@
 package com.anuj.service;
 
-import com.anuj.modal.User;
+import com.anuj.model.User;
 
 public interface UserService {
 

@@ -3,9 +3,8 @@ package com.anuj.service;
 import com.anuj.domain.AccountStatus;
 //import com.anuj.exception.SellerException;
 import com.anuj.exception.SellerException;
-import com.anuj.modal.Seller;
+import com.anuj.model.Seller;
 import java.util.List;
-import java.util.Optional;
 
 public interface SellerService {
     Seller getSellerProfile(String jwt) throws Exception;

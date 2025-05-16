@@ -1,4 +1,4 @@
-package com.anuj.modal;
+package com.anuj.model;
 
 
 import jakarta.persistence.*;
@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
