@@ -3,6 +3,7 @@ package com.anuj.controller;
 import com.anuj.domain.AccountStatus;
 import com.anuj.exception.SellerException;
 import com.anuj.model.Seller;
+import com.anuj.model.SellerReport;
 import com.anuj.model.VerificationCode;
 import com.anuj.repository.SellerRepository;
 import com.anuj.repository.VerificationCodeRepository;
@@ -10,6 +11,7 @@ import com.anuj.request.LoginRequest;
 import com.anuj.response.AuthResponse;
 import com.anuj.service.AuthService;
 import com.anuj.service.EmailService;
+import com.anuj.service.SellerReportService;
 import com.anuj.service.SellerService;
 import com.anuj.utils.OtpUtils;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +30,7 @@ public class SellerController {
     private final AuthService authService;
     private final EmailService emailService;
     private final SellerRepository sellerRepository;
-
+private final SellerReportService sellerReportService;
 //    @PostMapping("/sent/login-otp")
 //    public ResponseEntity<ApiResponce> sentLoginOtp(
 //            @RequestBody VerificationCode req) throws Exception {
@@ -119,14 +121,15 @@ public class SellerController {
         return new ResponseEntity<>(seller, HttpStatus.OK);
     }
 
-//    @GetMapping("/report")
-//    public ResponseEntity<SellerReport> getSellerReport(
-//            @RequestHeader("Authorization") String jwt) throws Exception {
+    @GetMapping("/report")
+    public ResponseEntity<SellerReport> getSellerReport(
+            @RequestHeader("Authorization") String jwt) throws Exception {
 //        String email = jwtProvider.getEmailFromJwtToken(jwt);
 //        Seller seller = sellerService.getSellerByEmail(email);
-//        SellerReport report = sellerReportService.getSellerReport(seller);
-//        return new ResponseEntity<>(report, HttpStatus.OK);
-//    }
+        Seller seller = sellerService.getSellerProfile(jwt);
+        SellerReport report = sellerReportService.getSellerReport(seller);
+        return new ResponseEntity<>(report, HttpStatus.OK);
+    }
 
     @GetMapping
     public ResponseEntity<List<Seller>> getAllSellers(
